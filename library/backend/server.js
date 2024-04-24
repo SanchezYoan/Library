@@ -1,15 +1,32 @@
 require('dotenv').config({ path: "../.env" });
 const mongoose = require('mongoose');
+const express = require("express");
+const connectDB = require("./config/db");
+const cors = require("cors");
+const bodyParser = require("body-parser")
+const port = 5000;
 
-console.log(process.env.MONGO_URL);
+// connection to DataBase
+connectDB();
 
-async function main() {
-    try {
-        await mongoose.connect(process.env.MONGO_URL);
-        console.log('Connexion réussie !');
-    } catch (error) {
-        console.log(error.message);
-    }
-}
+const app = express();
 
-main();
+// Authorisation CORS
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+        optionsSuccessStatus: 200,
+    })
+);
+
+
+app.use(express.json());
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/", require("./routes/post.routes"));
+
+// Lancer le server
+app.listen(port, () => console.log("Le server à démarré au port " + port));

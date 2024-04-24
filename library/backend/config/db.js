@@ -5,13 +5,10 @@ const connectDB = async () => {
   try {
     mongoose.set("strictQuery", false);
     mongoose
-      .connect(process.env.MONGO_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
+      .connect(process.env.MONGO_URL)
       .then(() => console.log("Mongo connected"));
   } catch (err) {
-    console.log(err);
+    console.log("Failed to connect:", err);
     process.exit();
   }
 };
