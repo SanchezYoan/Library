@@ -44,18 +44,18 @@ const deleteBook = async (req, res) => {
   const post = await postModel.findById(req.params.id);
 
   if (!post) {
-    res.status(400).json({ message: "Ce post n'existe pas" });
+    res.status(400).json({ message: "Ce livre n'existe pas" });
   }
 
   await post.deleteOne();
-  res.status(200).json("Message supprimé !" + post);
+  res.status(200).json("Livre supprimé !" + post);
 };
 
 const addHolder = async (req, res) => {
   try {
     await postModel.findByIdAndUpdate(
       req.params.id,
-      { $addToSet: { likers: req.body.userId } },
+      { $addToSet: { holder: req.body.userId } },
       { new: true }
     ).then((data) => res.status(200).send(data));
   } catch (err) {
@@ -66,7 +66,7 @@ const deleteHolder = async (req, res) => {
   try {
     await postModel.findByIdAndUpdate(
       req.params.id,
-      { $pull: { likers: req.body.userId } },
+      { $pull: { holder: req.body.userId } },
       { new: true }
     ).then((data) => res.status(200).send(data));
   } catch (err) {
