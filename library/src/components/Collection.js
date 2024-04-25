@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Library = () => {
+const Collection = () => {
     return (
         <div>
             <h1>Books</h1>
@@ -40,4 +40,4 @@ const Library = () => {
     );
 };
 
-export default Library;
+export default Collection;
