@@ -3,8 +3,8 @@ const postModel = require("../models/post.model");
 const allBooks = async (req, res) => {
   try {
     const posts = await postModel.find();
+    console.log("ALL BOOKS");
     res.status(200).json(posts);
-
   } catch (err) {
     res.status(400).json({ message: err })
   }
@@ -12,25 +12,16 @@ const allBooks = async (req, res) => {
 };
 
 const addBook = async (req, res) => {
+
   const newPost = await postModel.create({
     title: req.body.title,
     author: req.body.author,
   });
-
   try {
     const post = await newPost.save()
-    if (!req.body.title) {
-      res.status(400).json({ message: "Merci d'ajouter un titre" });
-    }
-    return res.status(200).json(post, { message: "livre ajouté" })
+    console.log("Livre ajouté");
+    res.status(200).json(post)
   } catch (err) {
-    return res.status(500).json({ message: err })
-  }
-
-  try {
-    res.status(200).json(post);
-    // res.json({ message: "It's good" });
-  } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
