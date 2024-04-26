@@ -3,7 +3,7 @@ const postModel = require("../models/post.model");
 const allBooks = async (req, res) => {
   try {
     const posts = await postModel.find();
-    console.log("ALL BOOKS");
+    // console.log("ALL BOOKS");
     res.status(200).json(posts);
   } catch (err) {
     res.status(400).json({ message: err })

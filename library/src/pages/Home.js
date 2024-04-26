@@ -1,5 +1,6 @@
 import React from 'react';
-import Collection from '../components/Collection';
+// import Collection from '../components/Collection';
+import Book from '../components/Book';
 
 const Home = () => {
     return (
@@ -11,6 +12,8 @@ const Home = () => {
                 <button>Ajouter un livre</button>
                 <button>Ajouter un autheur</button>
             </div>
+
+            <Book />
         </div>
     );
 };

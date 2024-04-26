@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Collection = () => {
+const ModalBook = () => {
     return (
         <div>
-            <h1>Books</h1>
+
         </div>
     );
 };
 
-export default Collection;
+export default ModalBook;
