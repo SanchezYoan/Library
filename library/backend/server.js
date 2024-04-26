@@ -1,9 +1,12 @@
+require('dotenv').config({ path: "../.env" });
+const mongoose = require('mongoose');
 const express = require("express");
 const connectDB = require("./config/db");
-const dotenv = require("dotenv").config();
 const cors = require("cors");
+const bodyParser = require("body-parser")
 const port = 5000;
 
+// connection to DataBase
 connectDB();
 
 const app = express();
@@ -17,9 +20,13 @@ app.use(
     })
 );
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-// app.use("/post", require("./routes/post.routes"));
+// app.use(express.json());
+app.use(bodyParser.json())
+// app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use("/", require("./routes/post.routes"));
+
+// Lancer le server
 app.listen(port, () => console.log("Le server à démarré au port " + port));

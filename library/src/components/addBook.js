@@ -1,12 +1,9 @@
 import React from 'react';
 
-const Library = () => {
+const addBook = () => {
     return (
         <div>
-            <h1>Books</h1>
             <div>
-                <button>Ajouter un nouveau livre</button>
-
                 <form>
                     <div>
 
@@ -34,10 +31,11 @@ const Library = () => {
                         />
 
                     </div>
+                    <input type="submit" value="Ajouter un nouveau livre" />
                 </form>
             </div>
         </div>
     );
 };
 
-export default Library;
+export default addBook;
