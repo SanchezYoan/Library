@@ -20,8 +20,6 @@ const Home = () => {
 
                 <button onClick={() => setIsModal(!isModal)}>Ajouter un livre</button>
 
-                <button>Ajouter un livre</button>
-
                 <button>Ajouter un autheur</button>
             </div>
             {
