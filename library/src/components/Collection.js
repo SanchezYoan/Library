@@ -3,10 +3,12 @@ import axios from 'axios';
 import Book from './ItemBook';
 
 const Collection = () => {
+
     const [books, setBooks] = useState([])
 
     useEffect(() => {
         const fetchBooks = async () => {
+
             const { data } = await axios.get("http://localhost:5000")
             setBooks(data)
         }
