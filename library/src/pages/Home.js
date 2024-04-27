@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import Collection from '../components/Collection';
-import Book from '../components/Book';
+import Collection from '../components/Collection';
 
 const Home = () => {
     const [isCollection, setIsCollection] = useState(false)
@@ -17,7 +16,7 @@ const Home = () => {
             </div>
             {
                 isCollection ? (
-                    <Book />
+                    <Collection />
                 ) : (
                     <></>
                 )
