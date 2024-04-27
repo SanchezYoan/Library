@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Collection from '../components/Collection';
+
 import AddModalBook from '../components/AddModalBook';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     const [isCollection, setIsCollection] = useState(false)
     // Variable d'état pour afficher la modal addBook
     const [isModal, setIsModal] = useState(false)
+
     return (
         <div className='homeContainer'>
             <div className='headerContainer'>
@@ -15,7 +17,11 @@ const Home = () => {
             </div>
             <div className='actionContainer'>
                 <button onClick={() => setIsCollection(!isCollection)}>Voir la collection</button>
+
                 <button onClick={() => setIsModal(!isModal)}>Ajouter un livre</button>
+
+                <button>Ajouter un livre</button>
+
                 <button>Ajouter un autheur</button>
             </div>
             {
@@ -25,6 +31,7 @@ const Home = () => {
                     <></>
                 )
             }
+
             <>
                 {
                     isModal ? (
@@ -34,6 +41,7 @@ const Home = () => {
                     )
                 }
             </>
+
 
         </div>
     );

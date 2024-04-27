@@ -10,6 +10,9 @@
         background-color: $red2;
         // padding: 10px;
         color: white;
+        background-color: $white2;
+        padding: 10px;
+
         width: 550px;
 
         .itemBook {
@@ -20,7 +23,6 @@
             grid-template-columns: 55% 30% 15%;
 
             p {
-                // margin: 0 auto;
                 padding: 3px;
                 border: 1px solid white;
             }
