@@ -1,8 +1,8 @@
 import React from 'react';
 
-const addBook = () => {
+const addBookModal = () => {
     return (
-        <div>
+        <div className='modalBook'>
             <div>
                 <form>
                     <div>
@@ -38,4 +38,4 @@ const addBook = () => {
     );
 };
 
-export default addBook;
+export default addBookModal;
