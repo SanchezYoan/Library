@@ -13,6 +13,11 @@ const postSchema = mongoose.Schema(
       require: true,
       maxlength: 200
     },
+    genres: {
+      type: String,
+      require: true,
+      maxlength: 200
+    },
     holder: {
       type: [String],
     },

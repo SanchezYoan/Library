@@ -18,7 +18,12 @@ const Collection = () => {
         <div className='collectionContainer'>
             <h1>Collection</h1>
             <div className='collectionContent'>
-
+                <div className='itemBook'>
+                    <p>Titre</p>
+                    <p>Genres</p>
+                    <p>Autheur</p>
+                    <p>Date</p>
+                </div>
                 {books.map((book) => {
                     return <Book title={book.title} author={book.author} createdAt={book.createdAt} />
                 })}

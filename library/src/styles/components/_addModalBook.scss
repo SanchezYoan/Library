@@ -1,3 +1,40 @@
 .modalBook {
-    position: absolute;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: $green1;
+
+    #crossModal {
+        i:hover {
+            margin-left: 5px;
+            color: white;
+        }
+    }
+
+    .inputAddBook {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        margin: 5px;
+    }
+
+    .submit {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+
+        #submit {
+            background-color: white;
+            border: none;
+            color: black;
+            padding: 5px;
+            border-radius: 20px;
+            padding: 6px;
+
+            &:hover {
+                background-color: $green2;
+                transform: scale(1.1);
+            }
+        }
+    }
+
 }

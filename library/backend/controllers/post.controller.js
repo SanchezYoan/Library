@@ -15,7 +15,8 @@ const addBook = async (req, res) => {
 
   const newPost = await postModel.create({
     title: req.body.title,
-    author: req.body.author,
+    genres: req.body.genres,
+    author: req.body.author
   });
   try {
     const post = await newPost.save()

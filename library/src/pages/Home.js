@@ -17,8 +17,17 @@ const Home = () => {
             </div>
             <div className='actionContainer'>
                 <button onClick={() => setIsCollection(!isCollection)}>Voir la collection</button>
+                <>
+                    {
+                        isModal ? (
+                            <AddModalBook modal={setIsModal} />
+                        ) : (
+                            <button onClick={() => setIsModal(!isModal)}>Ajouter un livre</button>
 
-                <button onClick={() => setIsModal(!isModal)}>Ajouter un livre</button>
+                        )
+                    }
+                </>
+
 
                 <button>Ajouter un autheur</button>
             </div>
@@ -29,17 +38,6 @@ const Home = () => {
                     <></>
                 )
             }
-
-            <>
-                {
-                    isModal ? (
-                        <AddModalBook />
-                    ) : (
-                        <></>
-                    )
-                }
-            </>
-
 
         </div>
     );
