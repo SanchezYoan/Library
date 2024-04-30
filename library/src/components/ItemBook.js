@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import UpdateModal from './UpdateModal';
 
 
-const Book = ({ title, author, createdAt }) => {
+const Book = ({ title, genres, author, createdAt, idBook }) => {
+
+    const [showUpdateModal, setshowUpdateModal] = useState(false)
 
     return (
-        <div className='itemBook'>
-            <p id="title">{title.toUpperCase()}</p>
-            <p id="author">{author}</p>
-            <p id="date">{new Date(createdAt).toLocaleDateString()}</p>
+        <div>
+
+            <div className='itemBook' onClick={() => setshowUpdateModal(!showUpdateModal)}>
+                <p >{title.toUpperCase()}</p>
+                <p >{genres}</p>
+                <p >{author}</p>
+                <p >{new Date(createdAt).toLocaleDateString()}</p>
+
+            </div>
+            {
+                showUpdateModal ? (
+
+                    <UpdateModal idBook={idBook} title={title} genres={genres} author={author} />
+                ) : (
+                    <></>
+                )
+            }
         </div>
     );
 };
