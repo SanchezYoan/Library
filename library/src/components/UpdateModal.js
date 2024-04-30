@@ -8,7 +8,7 @@ const UpdateModal = ({ idBook, title, genres, author }) => {
     const [editGenres, setEditGenres] = useState(genres);
     const [editAuthor, setEditAuthor] = useState(author);
 
-    // Editer un livre 
+    // Editer un livre de la collection
     const handleEditBook = (e) => {
 
         e.preventDefault();
