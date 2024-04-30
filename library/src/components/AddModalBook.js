@@ -1,3 +1,5 @@
+
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const AddBookModal = ({ modal }) => {
@@ -6,21 +8,28 @@ const AddBookModal = ({ modal }) => {
     const [genres, setGenres] = useState("");
     const [author, setAuthor] = useState("");
 
-    // Fonction pour gérer la soumission du formulaire
+    // Ajouter un livre à la collection
     const handleAddBook = (e) => {
-        e.preventDefault(); // Empêche le rafraîchissement de la page lors de la soumission du formulaire
-        // Créez un nouvel objet book avec les valeurs actuelles du formulaire
+        e.preventDefault();
         const book = {
             title: title,
             genres: genres,
             author: author
         };
-        // Vous pouvez faire quelque chose avec l'objet book ici, par exemple, l'envoyer à une fonction parent via les props
+        try {
+            axios.post('http://localhost:5000/', book)
+            console.log("Book is added")
+            setTitle("")
+            setGenres("")
+            setAuthor("")
+        } catch (err) {
+            console.log(err.message);
+        }
         console.log(book);
     };
 
     return (
-        <div className='modalBook'>
+        <div className='modalBook' >
             <form onSubmit={handleAddBook}>
                 <div id="crossModal" onClick={() => modal(false)}>
                     <i className="fa-solid fa-arrow-left"></i>
