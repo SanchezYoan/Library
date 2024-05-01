@@ -1,6 +1,6 @@
 # Library
 
-# FR
+  # FR
 
 Ce programme permet de gérer la base de données de notre librairie. Avec celle-ci, nous pourrons effectuer des opérations CRUD pour la gérer les stocks de nos livres, qu'il sagisse d'ajout, d'emprunt ou de suppression.
 
@@ -26,6 +26,5 @@ To launch the program, please run the commands in the following order at the roo
 - nodemon ./backend/server.js ( launch server express and connect to database )
 - npm run start ( react launch )
 
-  ps: Don't forget to update deprecated packages
+ps: Don't forget to update deprecated packages
 
-Translated with DeepL.com (free version)
