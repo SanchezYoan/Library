@@ -14,7 +14,7 @@ Pour lancer le programme, veuillez lancer les commandes dans l'ordre suivant à 
 
   ps: Pensez bien à mettre à jour les packages dépréciés
 
-  # EN
+# EN
 
 This program manages our bookshop database. With it, we'll be able to carry out CRUD operations to manage our book stocks, whether it's a question of adding, borrowing or deleting.
 
