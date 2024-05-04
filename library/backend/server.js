@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 // app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", require("./routes/post.routes"));
+app.use("/", require("./routes/book.routes"));
 
 // Lancer le server
 app.listen(port, () => console.log("Le server à démarré au port " + port));

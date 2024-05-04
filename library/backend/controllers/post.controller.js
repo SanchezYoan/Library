@@ -1,10 +1,10 @@
-const postModel = require("../models/post.model");
+const bookModel = require("../models/book.model");
 
 const allBooks = async (req, res) => {
   try {
-    const posts = await postModel.find();
+    const books = await bookModel.find();
     // console.log("ALL BOOKS");
-    res.status(200).json(posts);
+    res.status(200).json(books);
   } catch (err) {
     res.status(400).json({ message: err })
   }
@@ -13,48 +13,48 @@ const allBooks = async (req, res) => {
 
 const addBook = async (req, res) => {
 
-  const newPost = await postModel.create({
+  const newBook = await bookModel.create({
     title: req.body.title,
     genres: req.body.genres,
     author: req.body.author
   });
   try {
-    const post = await newPost.save()
+    const book = await newBook.save()
     console.log("Livre ajouté");
-    res.status(200).json(post)
+    res.status(200).json(book)
   } catch (err) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 const editBook = async (req, res) => {
-  const post = await postModel.findById(req.params.id);
+  const book = await bookModel.findById(req.params.id);
   res.status(200);
 
-  if (!post) {
-    res.status(400).json({ message: "Ce post n'existe pas" });
-  }
-
-  const updatePost = await postModel.findByIdAndUpdate(post, req.body, {
-    new: true,
-  });
-  res.status(200).json(updatePost);
-};
-
-const deleteBook = async (req, res) => {
-  const post = await postModel.findById(req.params.id);
-
-  if (!post) {
+  if (!book) {
     res.status(400).json({ message: "Ce livre n'existe pas" });
   }
 
-  await post.deleteOne();
-  res.status(200).json("Livre supprimé !" + post);
+  const updateBook = await bookModel.findByIdAndUpdate(book, req.body, {
+    new: true,
+  });
+  res.status(200).json(updateBook);
+};
+
+const deleteBook = async (req, res) => {
+  const book = await bookModel.findById(req.params.id);
+
+  if (!book) {
+    res.status(400).json({ message: "Ce livre n'existe pas" });
+  }
+
+  await book.deleteOne();
+  res.status(200).json("Livre supprimé !" + book);
 };
 
 const addHolder = async (req, res) => {
   try {
-    await postModel.findByIdAndUpdate(
+    await bookModel.findByIdAndUpdate(
       req.params.id,
       { $addToSet: { holder: req.body.userId } },
       { new: true }
@@ -65,7 +65,7 @@ const addHolder = async (req, res) => {
 };
 const deleteHolder = async (req, res) => {
   try {
-    await postModel.findByIdAndUpdate(
+    await bookModel.findByIdAndUpdate(
       req.params.id,
       { $pull: { holder: req.body.userId } },
       { new: true }
