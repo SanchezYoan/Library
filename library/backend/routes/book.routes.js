@@ -6,7 +6,7 @@ const {
   deleteBook,
   addHolder,
   deleteHolder,
-} = require("../controllers/post.controller");
+} = require("../controllers/book.controller");
 
 const router = express.Router();
 
