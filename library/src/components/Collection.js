@@ -13,7 +13,7 @@ const Collection = () => {
             setBooks(data)
         }
         fetchBooks()
-    })
+    }, [])
     return (
         <div className='collectionContainer'>
             <h1>Collection</h1>

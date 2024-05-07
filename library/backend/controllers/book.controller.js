@@ -18,7 +18,7 @@ const addBook = async (req, res) => {
     const isTitleExist = books.some((book) => book.title === req.body.title);
 
     if (isTitleExist) {
-      return res.status(406).json({ error: "Ce livre est déjà enregistré" });
+      res.status(406).json({ message: "Ce livre est déjà enregistré" });
     }
 
     const newBook = await bookModel.create({
