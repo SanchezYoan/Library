@@ -12,16 +12,21 @@ const allBooks = async (req, res) => {
 };
 
 const addBook = async (req, res) => {
-
-  const newBook = await bookModel.create({
-    title: req.body.title,
-    genres: req.body.genres,
-    author: req.body.author
-  });
   try {
-    const book = await newBook.save()
-    console.log("Livre ajouté");
-    res.status(200).json(book)
+    const books = await bookModel.find();
+
+    const isTitleExist = books.some((book) => book.title === req.body.title);
+
+    if (isTitleExist) {
+      res.status(406).json({ message: "Ce livre est déjà enregistré" });
+    }
+
+    const newBook = await bookModel.create({
+      title: req.body.title,
+      genres: req.body.genres,
+      author: req.body.author
+    });
+    res.status(200).json(newBook);
   } catch (err) {
     res.status(500).json({ error: "Internal Server Error" });
   }
