@@ -14,6 +14,7 @@ const Collection = () => {
         }
         fetchBooks()
     }, [])
+    // run useEffect when data is changed
     return (
         <div className='collectionContainer'>
             <h1>Collection</h1>

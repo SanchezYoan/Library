@@ -20,6 +20,7 @@ const UpdateModal = ({ idBook, title, genres, author }) => {
         try {
             axios.put('http://localhost:5000/' + idBook, data)
             console.log("Book is update")
+            setUpdate(false)
         } catch (err) {
             console.log(err.message);
         }
