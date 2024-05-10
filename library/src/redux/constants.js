@@ -1,10 +1,19 @@
 
 // BOOKS
-export const ADD_BOOK = "ADD_TO_COLLECTION";
-export const EDIT_BOOK = "DELETE_TO_CART";
-export const DELETE_BOOK = "DELETE_TO_CART";
+export const ALL_COLLECTION = "ALL_COLLECTION";
+export const ADD_BOOK = "ADD_BOOK";
+export const EDIT_BOOK = "DELETE_BOOK";
+export const DELETE_BOOK = "DELETE_BOOK";
+
 
 // AUTHOR
-export const ADD_AUTHOR = "ADD_PAYMENT";
-export const EDIT_AUTHOR = "DELETE_TO_CART";
-export const DELETE_AUTHOR = "ADD_PAYMENT";
+export const ALL_AUTHOR = "ALL_AUTHOR";
+export const ADD_AUTHOR = "ADD_AUTHOR";
+export const EDIT_AUTHOR = "EDIT_AUTHOR";
+export const DELETE_AUTHOR = "DELETE_AUTHOR";
+
+// HOLDER
+export const ALL_HOLDER = "ALL_HOLDER";
+export const ADD_HOLDER = "ADD_HOLDER";
+export const EDIT_HOLDER = "EDIT_HOLDER";
+export const DELETE_HOLDER = "DELETE_HOLDER";
