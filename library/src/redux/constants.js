@@ -1,5 +1,6 @@
 
 // BOOKS
+export const SET_BOOKS = "SET_BOOKS";
 export const ALL_COLLECTION = "ALL_COLLECTION";
 export const ADD_BOOK = "ADD_BOOK";
 export const EDIT_BOOK = "DELETE_BOOK";

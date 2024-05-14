@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Book from './ItemBook';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from '../redux/reducers/reducerBooks';
 
 const Collection = () => {
     // const [books, setBooks] = useState([])
+    const dispatch = useDispatch();
 
-    const dataBooks = useSelector((state) => state.books.existingBooks).then((res) =>
-        res.data
-    )
+    const dataBooks = useSelector((state) => state.books.existingBooks)
     console.log(dataBooks);
+
     useEffect(() => {
-        const fetchBooks = async () => {
-            // setBooks(dataBooks)
-        }
-        fetchBooks()
-    }, [dataBooks])
+        dispatch(fetchBooks());
+    }, [dispatch]);
     // run useEffect when data is changed
     return (
         <div className='collectionContainer'>
@@ -26,9 +24,9 @@ const Collection = () => {
                     <p>Autheur</p>
                     <p>Date</p>
                 </div>
-                {/* {books.map((book) => {
+                {dataBooks.map((book) => {
                     return <Book title={book.title} genres={book.genres} author={book.author} createdAt={book.createdAt} idBook={book._id} />
-                })} */}
+                })}
             </div>
         </div>
     );
