@@ -1,12 +1,16 @@
 
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import addBook from '../redux/actions/actionAddBook';
 
 const AddBookModal = ({ modal }) => {
     // États pour stocker les valeurs du formulaire
     const [title, setTitle] = useState("");
     const [genres, setGenres] = useState("");
     const [author, setAuthor] = useState("");
+
+    const dispatch = useDispatch()
 
     // Ajouter un livre à la collection
     const handleAddBook = (e) => {
@@ -17,14 +21,16 @@ const AddBookModal = ({ modal }) => {
             author: author
         };
         try {
-            axios.post('http://localhost:5000/', book)
-            console.log("Book is added")
+            // axios.post('http://localhost:5000/', book)
+            // console.log("Book is added")
+            dispatch(addBook(book))
             setTitle("")
             setGenres("")
             setAuthor("")
         } catch (err) {
             console.log(err.message);
         }
+
         console.log(book);
     };
 

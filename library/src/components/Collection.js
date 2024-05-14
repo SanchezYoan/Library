@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from '../redux/reducers/reducerBooks';
 
 const Collection = () => {
-    // const [books, setBooks] = useState([])
     const dispatch = useDispatch();
 
     const dataBooks = useSelector((state) => state.books.existingBooks)
