@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import deleteBook from '../redux/actions/actionDeleteBook';
 
 const UpdateModal = ({ idBook, title, genres, author }) => {
 
@@ -8,6 +10,7 @@ const UpdateModal = ({ idBook, title, genres, author }) => {
     const [editGenres, setEditGenres] = useState(genres);
     const [editAuthor, setEditAuthor] = useState(author);
 
+    const dispatch = useDispatch()
     // Editer un livre de la collection
     const handleEditBook = (e) => {
 
@@ -32,15 +35,7 @@ const UpdateModal = ({ idBook, title, genres, author }) => {
     const handleDeleteBook = () => {
         const userConfirmed = window.confirm(`Êtes-vous sûr de vouloir supprimer le livre "${title}" de ${author} ?`);
         if (userConfirmed) {
-
-            axios
-                .delete("http://localhost:5000/" + idBook)
-                .then(res => {
-                    console.log("Livre édité avec succès");
-                })
-                .catch(error => {
-                    console.error("Erreur lors de l'édition du livre:", error);
-                });
+            dispatch(deleteBook(idBook))
         } else {
             console.log("Suppression annulée par l'utilisateur.");
         }

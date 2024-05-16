@@ -1,9 +1,9 @@
 import { DELETE_BOOK } from "../constants";
 
-const deleteBook = (bookId) => {
+const deleteBook = (idBook) => {
     return {
         type: DELETE_BOOK,
-        bookId: bookId,
+        idBook: idBook,
     };
 };
 

@@ -1,5 +1,3 @@
-
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import addBook from '../redux/actions/actionAddBook';
@@ -21,8 +19,6 @@ const AddBookModal = ({ modal }) => {
             author: author
         };
         try {
-            // axios.post('http://localhost:5000/', book)
-            // console.log("Book is added")
             dispatch(addBook(book))
             setTitle("")
             setGenres("")

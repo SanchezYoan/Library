@@ -56,7 +56,15 @@ const reducerBooks = (state = initialState, action) => {
             }
 
         // case EDIT_BOOK:
-        // case DELETE_BOOK:
+        case DELETE_BOOK:
+            try {
+
+                axios
+                    .delete("http://localhost:5000/" + action.idBook)
+            } catch (err) {
+                console.error("Erreur lors de l'édition du livre:", err);
+            }
+
         default:
             return state;
     }
