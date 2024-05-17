@@ -25,7 +25,21 @@ const reducerBooks = (state = initialState, action) => {
                 existingBooks: state.existingBooks.concat(action.book),
             };
 
-        // case EDIT_BOOK:
+        case EDIT_BOOK:
+            return {
+                ...state,
+                existingBooks: state.existingBooks.map((book) => {
+                    if (book._id === action.idBook._id) {
+                        console.log("successFull");
+                        return {
+                            ...action.idBook,
+                        };
+                    } else {
+                        console.log("not succes", action.idBook._id, book._id);
+                        return book;
+                    }
+                }),
+            };
         case DELETE_BOOK:
             return {
                 ...state,

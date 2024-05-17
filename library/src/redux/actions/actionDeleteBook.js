@@ -13,7 +13,7 @@ const deleteBook = (idBook) => async (dispatch) => {
         await axios.delete(`http://localhost:5000/${idBook}`);
         dispatch(deleteBookSuccess(idBook));
     } catch (error) {
-        console.error("Erreur lors de la suppression du livre:", error);
+        console.error("Erreur lors de la suppression du livre", error);
     }
 };
 

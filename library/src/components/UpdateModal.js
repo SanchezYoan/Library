@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import deleteBook from '../redux/actions/actionDeleteBook';
+import editBook from '../redux/actions/actionEditBook';
 
 const UpdateModal = ({ idBook, title, genres, author }) => {
 
@@ -21,7 +21,7 @@ const UpdateModal = ({ idBook, title, genres, author }) => {
             author: editAuthor
         };
         try {
-            axios.put('http://localhost:5000/' + idBook, data)
+            dispatch(editBook(idBook, data))
             console.log("Book is update")
             setUpdate(false)
         } catch (err) {
