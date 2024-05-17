@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Book from './ItemBook';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBooks } from '../redux/reducers/reducerBooks';
+import { fetchBooks } from '../redux/actions/actionSetBooks';
 
 const Collection = () => {
     const dispatch = useDispatch();
