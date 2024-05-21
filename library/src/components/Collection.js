@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import Book from './ItemBook';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from '../redux/actions/actionSetBooks';
 
 const Collection = () => {
+    const dispatch = useDispatch();
 
-    const [books, setBooks] = useState([])
+    // Library collection
+    const dataBooks = useSelector((state) => state.books.existingBooks)
 
     useEffect(() => {
-        const fetchBooks = async () => {
+        dispatch(fetchBooks());
+    }, [dispatch]);
 
-            const { data } = await axios.get("http://localhost:5000")
-            setBooks(data)
-        }
-        fetchBooks()
-    }, [])
     return (
         <div className='collectionContainer'>
             <h1>Collection</h1>
@@ -24,7 +23,7 @@ const Collection = () => {
                     <p>Autheur</p>
                     <p>Date</p>
                 </div>
-                {books.map((book) => {
+                {dataBooks.map((book) => {
                     return <Book title={book.title} genres={book.genres} author={book.author} createdAt={book.createdAt} idBook={book._id} />
                 })}
             </div>
