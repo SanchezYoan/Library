@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Collection from '../components/Collection';
 
 import AddModalBook from '../components/AddModalBook';
@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import showHideComponent from '../redux/actions/actionShowHide';
 
 const Home = () => {
+    const dispatch = useDispatch()
+
     // Variable d'état pour afficher la collection
     const displayAddBook = useSelector((state) => state.display.addBook)
     // Variable d'état pour afficher la modal addBook
     const displayCollection = useSelector((state) => state.display.collection)
 
-    const dispatch = useDispatch()
 
 
     return (
