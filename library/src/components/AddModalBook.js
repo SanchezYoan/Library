@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import addBook from '../redux/actions/actionAddBook';
+import showHideComponent from '../redux/actions/actionShowHide';
 
 const AddBookModal = ({ modal }) => {
     // États pour stocker les valeurs du formulaire
@@ -33,7 +34,7 @@ const AddBookModal = ({ modal }) => {
     return (
         <div className='modalBook' >
             <form onSubmit={handleAddBook}>
-                <div id="crossModal" onClick={() => modal(false)}>
+                <div id="crossModal" onClick={() => dispatch(showHideComponent("addBook"))}>
                     <i className="fa-solid fa-arrow-left"></i>
                 </div>
                 <div className="inputAddBook">

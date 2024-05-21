@@ -6,13 +6,13 @@ import { fetchBooks } from '../redux/actions/actionSetBooks';
 const Collection = () => {
     const dispatch = useDispatch();
 
+    // Library collection
     const dataBooks = useSelector((state) => state.books.existingBooks)
-    console.log(dataBooks);
 
     useEffect(() => {
         dispatch(fetchBooks());
     }, [dispatch]);
-    // run useEffect when data is changed
+
     return (
         <div className='collectionContainer'>
             <h1>Collection</h1>

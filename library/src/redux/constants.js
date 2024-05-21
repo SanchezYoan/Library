@@ -1,4 +1,8 @@
 
+// DISPLAY
+
+export const SHOW_HIDE = "SHOW_HIDE";
+
 // BOOKS
 export const SET_BOOKS = "SET_BOOKS";
 export const ALL_COLLECTION = "ALL_COLLECTION";

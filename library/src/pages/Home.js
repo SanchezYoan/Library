@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import Collection from '../components/Collection';
 
 import AddModalBook from '../components/AddModalBook';
+import { useDispatch, useSelector } from 'react-redux';
+import showHideComponent from '../redux/actions/actionShowHide';
 
 const Home = () => {
     // Variable d'état pour afficher la collection
-    const [isCollection, setIsCollection] = useState(false)
+    const displayAddBook = useSelector((state) => state.display.addBook)
     // Variable d'état pour afficher la modal addBook
-    const [isModal, setIsModal] = useState(false)
+    const displayCollection = useSelector((state) => state.display.collection)
+
+    const dispatch = useDispatch()
+
 
     return (
         <div className='homeContainer'>
@@ -16,13 +21,13 @@ const Home = () => {
                 <h2>Que voulez vous faire aujourd'hui ?</h2>
             </div>
             <div className='actionContainer'>
-                <button onClick={() => setIsCollection(!isCollection)}>Voir la collection</button>
+                <button onClick={() => dispatch(showHideComponent("collection"))}>Voir la collection</button>
                 <>
                     {
-                        isModal ? (
-                            <AddModalBook modal={setIsModal} />
+                        displayAddBook ? (
+                            <AddModalBook />
                         ) : (
-                            <button onClick={() => setIsModal(!isModal)}>Ajouter un livre</button>
+                            <button onClick={() => dispatch(showHideComponent("addBook"))}>Ajouter un livre</button>
 
                         )
                     }
@@ -32,7 +37,7 @@ const Home = () => {
                 <button>Ajouter un autheur</button>
             </div>
             {
-                isCollection ? (
+                displayCollection ? (
                     <Collection />
                 ) : (
                     <></>
