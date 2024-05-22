@@ -7,7 +7,7 @@ export const SHOW_HIDE = "SHOW_HIDE";
 export const SET_BOOKS = "SET_BOOKS";
 export const ALL_COLLECTION = "ALL_COLLECTION";
 export const ADD_BOOK = "ADD_BOOK";
-export const EDIT_BOOK = "DELETE_BOOK";
+export const EDIT_BOOK = "EDIT_BOOK";
 export const DELETE_BOOK = "DELETE_BOOK";
 
 

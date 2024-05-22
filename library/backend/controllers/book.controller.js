@@ -24,10 +24,11 @@ const addBook = async (req, res) => {
     const newBook = await bookModel.create({
       title: req.body.title,
       genres: req.body.genres,
-      author: req.body.author
+      author: req.body.author,
     });
     res.status(200).json(newBook);
   } catch (err) {
+    console.log(err.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -47,15 +48,21 @@ const editBook = async (req, res) => {
 };
 
 const deleteBook = async (req, res) => {
+
   const book = await bookModel.findById(req.params.id);
+  try {
 
-  if (!book) {
+    if (book) {
+      await book.deleteOne();
+      res.status(200).json("Livre supprimé !" + book);
+    }
+  } catch (err) {
+    console.log(err.message);
     res.status(400).json({ message: "Ce livre n'existe pas" });
-  }
 
-  await book.deleteOne();
-  res.status(200).json("Livre supprimé !" + book);
-};
+  }
+}
+
 
 const addHolder = async (req, res) => {
   try {

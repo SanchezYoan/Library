@@ -22,7 +22,7 @@ const reducerBooks = (state = initialState, action) => {
         case ADD_BOOK:
             return {
                 ...state,
-                existingBooks: state.existingBooks.concat(action.book),
+                existingBooks: [...state.existingBooks, action.book]
             };
 
         case EDIT_BOOK:
@@ -35,7 +35,7 @@ const reducerBooks = (state = initialState, action) => {
                             ...action.idBook,
                         };
                     } else {
-                        console.log("not succes", action.idBook._id, book._id);
+                        console.log("not success", action.idBook._id, book._id);
                         return book;
                     }
                 }),

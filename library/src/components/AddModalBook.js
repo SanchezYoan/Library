@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import addBook from '../redux/actions/actionAddBook';
 import showHideComponent from '../redux/actions/actionShowHide';
 
-const AddBookModal = ({ modal }) => {
+const AddBookModal = () => {
     // États pour stocker les valeurs du formulaire
     const [title, setTitle] = useState("");
     const [genres, setGenres] = useState("");
@@ -14,10 +14,11 @@ const AddBookModal = ({ modal }) => {
     // Ajouter un livre à la collection
     const handleAddBook = (e) => {
         e.preventDefault();
+
         const book = {
-            title: title,
-            genres: genres,
-            author: author
+            title,
+            genres,
+            author
         };
         try {
             dispatch(addBook(book))
@@ -28,7 +29,6 @@ const AddBookModal = ({ modal }) => {
             console.log(err.message);
         }
 
-        console.log(book);
     };
 
     return (
