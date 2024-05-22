@@ -24,7 +24,7 @@ const addBook = async (req, res) => {
     const newBook = await bookModel.create({
       title: req.body.title,
       genres: req.body.genres,
-      author: req.body.author
+      author: req.body.author,
     });
     res.status(200).json(newBook);
   } catch (err) {

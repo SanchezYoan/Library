@@ -14,13 +14,11 @@ const AddBookModal = () => {
     // Ajouter un livre à la collection
     const handleAddBook = (e) => {
         e.preventDefault();
-        const createAt = new Date(Date()).toLocaleDateString()
-        console.log(createAt);
+
         const book = {
             title,
             genres,
-            author,
-            createAt
+            author
         };
         try {
             dispatch(addBook(book))
@@ -30,8 +28,6 @@ const AddBookModal = () => {
         } catch (err) {
             console.log(err.message);
         }
-
-        console.log(book);
     };
 
     return (
