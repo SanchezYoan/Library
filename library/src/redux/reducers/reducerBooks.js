@@ -41,7 +41,6 @@ const reducerBooks = (state = initialState, action) => {
                 }),
             };
         case DELETE_BOOK:
-            console.log("DELETE");
             return {
                 ...state,
                 existingBooks: state.existingBooks.filter((book) => book._id !== action.idBook),
