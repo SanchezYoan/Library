@@ -23,8 +23,10 @@ const Collection = () => {
                     <p>Autheur</p>
                     <p>Date</p>
                 </div>
+
                 {dataBooks.map((book, index) => {
                     return <Book title={book.title} genres={book.genres} author={book.author} createdAt={book.createdAt} key={index} idBook={book._id} />
+
                 })}
             </div>
         </div>
