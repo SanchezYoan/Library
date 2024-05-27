@@ -29,13 +29,14 @@ const reducerBooks = (state = initialState, action) => {
             return {
                 ...state,
                 existingBooks: state.existingBooks.map((book) => {
-                    if (book._id === action.idBook._id) {
+                    if (book._id === action.idBook) {
                         console.log("successFull");
                         return {
-                            ...action.idBook,
+                            ...book,
+                            ...action.book
                         };
                     } else {
-                        console.log("not success", action.idBook._id, book._id);
+                        console.log("not success", action.idBook, book._id);
                         return book;
                     }
                 }),

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Collection from '../components/Collection';
 
 import AddModalBook from '../components/AddModalBook';

@@ -12,6 +12,7 @@ connectDB();
 const app = express();
 
 // Authorisation CORS
+app.use(cors())
 app.use(
     cors({
         origin: "http://localhost:3000",
@@ -29,4 +30,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", require("./routes/book.routes"));
 
 // Lancer le server
-app.listen(port, () => console.log("Le server à démarré au port " + port));
+app.listen(port || 5000, () => console.log("Le server à démarré au port " + port));
