@@ -7,7 +7,7 @@ const setBooks = (books) => ({
 
 export const fetchBooks = () => async (dispatch) => {
     try {
-        const response = await fetch('http://localhost:5000');
+        const response = await fetch('https://mylibrairi-a2b25f49ea43.herokuapp.com/');
 
         if (!response.ok) {
             throw new Error('Network response has problem ' + response.statusText);
